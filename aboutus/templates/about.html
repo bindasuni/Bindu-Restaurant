@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+      <div class="main-wrap">
+        <div class="cover_1 cover_sm">
+          <div class="img_bg" style="background-image: url({% static 'site_static/img/slider-1.jpg' %})" data-stellar-background-ratio="0.8">
+            <div class="container">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-md-12" data-aos="fade-up">
+                  <br><h2 class="heading">About Our Restaurant </h2>
+                  <h1 style="color:lightblue"><u>A History that become  favorite since 2000.</u></h1><br>
+                  <h3 style="color:white"> At Bindu Restaurant : </h3>
+                  <b style="font-size:large"> We believe the best dishes are the ones that remind you of childhood. A portion of great food should make you feel like you are wrapped in a warm blanket.At our location in Boston or online,
+                      you will find the best dishes you didn't know you craved:extra-creamy mac and cheese, hot chicken casserole,
+                      fried dumplings like your mama makes, and many more.Forget about the daily stress and come relax with us.
+                      After tasting any of our menu items, you will never want to leave !</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .cover_1 -->
+        <div class="section">
+          <div class="img_bg" style="background-image: url({% static 'site_static/contactus.jpg' %})" data-stellar-background-ratio="0.5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-08" data-aos="fade-up">
+                <img src="{% static 'site_static/img/about_1.png' %}" alt="Image placeholder" class="img-fluid">
+              </div>
+              <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="mb-4">{{about.title}}</h2>
+                <p>{{about.content}}</p>
+
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+<div class="img_bg" style="background-image: url({% static 'site_static/img/binda2.jpg' %}) " data-stellar-background-ratio="1.0">
+
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center mb-6" data-aos="fade-up">
+              <div class="col-md-8 text-center">
+                <h1 class="mb-6"><u>Why  You Choose Us...??</u></h1><br>
+                <strong style="color:lightblue;font-size:large">
+                  We are committed to our customers and the Cape community we love,
+                    and show our support for local schools and community fundraisers whenever possible.
+                    Come join us at our upcoming events.......!<br>
+                    Please stop by and see us next time you’re on the Cape.We promise it won’t be your last !<br>
+                    We’re all family here , with sister, brother and parents,
+                    working together to provide our customers with nothing but the best :
+                    quality foods made with quality ingredients, served in a comfortable, inviting place.
+                    That’s why locals and visitors alike have been joining us for nearly 15 years...!
+                </strong>
+              </div>
+            </div>
+            <div class="row large-gutters">
+              <div class="col-md-6"  data-aos="fade-up" data-aos-delay="200">
+                <img src="{% static 'site_static/img/img_2.jpg' %}" alt="Image placeholder" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="accordion" id="accordion">
+                  {% for info in why_choose_us %}
+
+                    <div class="accordion-item">
+                      <h3 class="mb-0">
+                        <a class="btn-block p-3" data-toggle="collapse" href="http://127.0.0.1:8000/ collapse{{info.id}}" role="button" aria-expanded="true" aria-controls="collapseOne">{{info.title}} <span class="icon"></span></a>
+                      </h3>
+                      <div id="collapse{{info.id}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="p-3">
+                          <p>{{info.content}}</p>
+                        </div>
+                      </div>
+                    </div> <!-- .accordion-item -->
+
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center mb-4" data-aos="fade-up">
+              <div class="col-md-10  text-center">
+                <h1 class="mb-10"><u>Restaurants Chef Always there for you...!</u></h1><br>
+                <p style="color:white;font-size:large">
+                  The team behind GloriaFood was formed
+                  from individuals with complementary skill sets and personalities.
+                  Each member pitches in for new ideas and looks forward to see
+                  what we can accomplish alongside our clients-turned-to-friends.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              {% for one in chef %}
+
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                  <img src="{{one.image.url}}" alt="Image placeholder" class="img-fluid mb-4 rounded">
+                  <h3 class="mb-3">{{one.name}}</h3>
+                  <p class="post-meta text-muted">{{one.title}}</p>
+                  <p class="mb-5">{{one.bio}}</p>
+                </div>
+
+              {% endfor %}
+            </div>
+          </div>
+        </div> <!-- .section -->
+</div>
+      </div> <!-- .main-wrap -->
+
+      {% endblock body %}
